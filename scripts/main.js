@@ -736,6 +736,18 @@ function getVals(time) {
     return dataz.map(function(day) {return Number(day[time])});
 }
 
-
 console.log(arrAvg(getVals('1. open')));
 
+function findMax(a, b) {
+    return Math.max(a, b);
+}
+
+function maxmin(arr, fn) {
+    return arr.reduce(fn);
+}
+
+function findMin(a, b) {
+    return Math.min(a, b);
+}
+console.log(maxmin(getVals('2. high'), findMax));
+console.log(maxmin(getVals('3. low'), findMin));
