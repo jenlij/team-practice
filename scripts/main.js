@@ -738,16 +738,49 @@ function getVals(time) {
 
 console.log(arrAvg(getVals('1. open')));
 
+
+
 function findMax(a, b) {
     return Math.max(a, b);
-}
-
-function maxmin(arr, fn) {
-    return arr.reduce(fn);
 }
 
 function findMin(a, b) {
     return Math.min(a, b);
 }
-console.log(maxmin(getVals('2. high'), findMax));
-console.log(maxmin(getVals('3. low'), findMin));
+
+function arrMaxOrMin(arr, fn) {
+    return arr.reduce(fn);
+}
+
+console.log(arrMaxOrMin(getVals('2. high'), findMax));
+console.log(arrMaxOrMin(getVals('3. low'), findMin));
+
+function makeLittleDictionary(date) {
+    var littleDictionary = {};
+    littleDictionary['date'] = date;
+    littleDictionary['open'] = stocks[date]['1. open'];
+    littleDictionary['close'] = stocks[date]['4. close'];
+    return littleDictionary;
+}
+
+function makeArray(little) {
+    var stockArr = [];
+    days.forEach(function(date) {
+        stockArr.push(little(date));
+        });
+    return stockArr;
+}
+console.log(makeArray(makeLittleDictionary));
+
+//[
+
+//{date: '123',
+//open: '123',
+//close: '123' },
+
+//{date: '123',
+//open: '123',
+//close: '123' }
+
+//]
+
