@@ -715,17 +715,16 @@ function obtainData(time){
         return day[time];
     });
 }
-function Total(dataz,time){
+function total(time){
     return dataz.reduce(function (tally, current){
         return (Number(tally) + Number(current[time]));
     },0);
 }
 
-function getAverage(arr){
-    return arr.reduce(function(a,b){
-        return a+b / dataz.length;
-    },0);
+function getAverage(time){
+    return (time) +  " " +(total(time)/ days.length);
 }
+
 function highestVal(time){
     var data = obtainData(time);
     var max =  data.sort(function (a,b){
